@@ -179,3 +179,22 @@ DoEvents 做了什么？
 - 为什么 DoEvents 会让 bug 偶现？
 - 为什么 await 后还能更新 UI？
 - 为什么版本号通常比时间戳更可靠？
+
+---
+
+## Demo 运行说明
+
+- 使用 Visual Studio 2019/2022 打开 `TechniqueSharingAsyncTask.csproj`（目标框架 .NET Framework 4.6），直接 F5 运行。
+- 主窗体控件对应演示脚本：
+  - **Sync Work (UI Freeze)**：启动同步耗时循环，验证 UI 假死效果。
+  - **DoEvents Work (Looks Responsive)**：在循环中调用 `Application.DoEvents()`，UI 可响应但会允许重入。
+  - **Task/Async Work (Recommended)**：`Task.Run` + `Progress` + 取消 + 防重复启动。
+  - **Cancel**：取消正在运行的 Task/Async 工作。
+  - **Click Me (UI still alive?)**：随时点击以验证 UI 是否仍然响应。
+  - **Guard DoEvents reentrancy**：勾选后启用最小止血方案（互斥）以阻止重入。
+  - **Counter with/without Lock / Use lock**：并发计数器演示（无锁丢失递增 vs 加锁/Interlocked 正确）。
+  - **Save A / Save B**：版本戳冲突演示，编辑框代表两个编辑者，保存时校验版本。
+- 触发 DoEvents 重入反例：
+  1. 不勾选 “Guard DoEvents reentrancy”。
+  2. 点击 “DoEvents Work (Looks Responsive)” 开始运行。
+  3. 任务过程中再次点击同一按钮，日志将出现 RunId 交错、状态错乱。
