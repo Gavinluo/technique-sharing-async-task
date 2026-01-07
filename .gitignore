@@ -1,0 +1,88 @@
+# Visual Studio
+.vs/
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.cache
+
+# Build results
+[Dd]ebug*/
+[Rr]elease*/
+bin/
+obj/
+artifacts/
+TestResults/
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.assets.json
+.nuget/
+
+# MSBuild
+*.log
+*.tlog
+*.lastbuildstate
+*.builds
+
+# Others
+*.db
+*.sqlite
+*.pdb
+*.dll
+*.exe
+*.cache
+Thumbs.db
+.DS_Store
+
+# Resharper
+_ReSharper*/
+*.ReSharper*
+*.DotSettings.user
+
+# Windows image file cache
+*.wim
+
+# Publish / deployment
+publish/
+
+# IIS Express
+/.vs/config/*.db
+
+# Temporary files
+*.tmp
+~$*
+
+# Coverage and test output
+coverage*/
+*.coverage
+*.coveragexml
+
+# JetBrains Rider caches
+.idea/
+
+# Ignore user-specific files created by Visual Studio
+*.opensdf
+*.sdf
+*.ipch
+
+# Generated files (obj folders in subprojects)
+**/bin/
+**/obj/
+
+# Node modules if present
+node_modules/
+
+# Logs
+*.log
+
+# Ensure Presentation.md and other docs are tracked (do not ignore)
